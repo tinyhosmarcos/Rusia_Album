@@ -1,0 +1,21 @@
+{% load static %}
+li a {
+    color: green;
+}
+body {
+    background: white url("images/polygon.jpg");
+}
+@font-face {
+	font-family: 'bignoodletitling';
+	src: url("fonts/bignood/bignoodletitling.eot");
+	src: local('bignoodletitling'), url("fonts/bignood/bignoodletitling.woff") format('woff'), url("font/bignood/bignoodletitling.ttf") format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_2555">Text with this font applied</p> */
+p{
+	font-family: 'bignoodletitling' !important;
+}
+/* Font downloaded from FontsForWeb.com */
+h5{
+	font-family: 'bignoodletitling' !important;
+}
+/* Font downloaded from FontsForWeb.com */

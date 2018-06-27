@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{%block title%}Album Mundial Rusia 2018{%endblock%}</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'test_project/css/materialize.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'test_project/css/materialize.css' %}" />
+	{%block header%}
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'test_project/estilos/estilopaginaprincipal.css' %}" />
+	
+	{%endblock%}	
+
+</head>
+<body>
+	<p>
+
+	{{user.userprofile.time_sobres}}
+	</p>
+	{% block content %}
+	
+	<div id="Titulo">
+    	<h4 class="z-depth-1 #e53935 red darken-1">Album del Mundial Rusia 2018</h4>
+    </div>
+	
+	<div style="position: absolute; width: 33%; height: 676px">
+		<div id="Tiempo" >
+			<a id="clock" class="waves-effect waves-light btn-small"></a>
+		</div>
+		<div id="CantidadPaquetes" >
+			<a class="btn-floating pulse #f4511e deep-orange darken-1"><i class="material-icons ">{{user.userprofile.num_sobres}}</i></a>
+		</div>
+		<div id="PaquetesDeCromos" >
+			<img src="{% static 'test_project/estilos/Figuritas y paquetes.png '%}" width="80%" height="80%">
+		</div>
+		<div id="BotonesDeAbrir" >
+			<a class="waves-effect waves-light btn-large #f4511e deep-orange darken-1" href="AbrirSobre.html">Abrir Sobre</a>
+			<a class="waves-effect waves-light btn-large #f4511e deep-orange darken-1" href="CanjearCodigo.html">Canjear Codigo</a>
+		</div>
+		<div id="ImgAreaInter" >
+			<img src="{% static 'test_project/estilos/intercambio.jpg'%}" width="80%" height="80%">
+		</div>
+		<div id="BotonDeArea" >
+			<a class="waves-effect waves-light btn-large #f4511e deep-orange darken-1" href="AreaDeIntercambio.html">Area de Intercambio</a>
+		</div>
+	</div>
+
+
+	<div style="position: absolute;; width: 33%; height: 676px;margin-left: 33%;">
+		<div id="FigurasMedio" >
+			<img src="{% static 'test_project/estilos/Figuras.png' %}" width="70%" height="70%">
+		</div>
+		<div id="BotonDeCromos" >
+			<a class="waves-effect waves-light btn-large #f4511e deep-orange darken-1" href="MisCromos.html">Mis Cromos</a>
+		</div>
+	</div>
+	
+	<div style="width: 34%; height: 676px;margin-left: 66%;">
+		<a id="regresar" class="waves-effect waves-light btn" href="{%url 'logout' %}">LogOut</a>
+		<div id="albumdeuser" >
+			<img src="{% static 'test_project/estilos/Imagen de Login.png' %}" width="100%" height="100%" align="middle">
+		</div>
+		<div id="BotonDeAlbum" >
+			<a class="waves-effect waves-light btn-large #f4511e deep-orange darken-1" href="MiAlbum.html">Mi Album</a>
+		</div>
+	</div>
+	{% endblock%}
+
+	
+	
+		<script type="text/javascript">
+
+	const getRemainingTime = deadline => {
+  let now = new Date(),
+
+
+      remainTime = (now-new Date(deadline)+ 18001000) / 1000,
+
+   
+
+      remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
+      remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2),
+      remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2),
+      remainDays = Math.floor(remainTime / (3600 * 24));
+
+  return {
+    remainSeconds,
+    remainMinutes,
+    remainHours,
+    remainDays,
+    remainTime
+  }
+};
+
+const countdown = (deadline,elem,finalMessage) => {
+  const el = document.getElementById(elem);
+
+  const timerUpdate = setInterval( () => {
+    let t = getRemainingTime(deadline);
+    el.innerHTML = `${t.remainDays}d:${t.remainHours}h:${t.remainMinutes}m:${t.remainSeconds}s`;
+
+    if(t.remainTime <= 1) {
+      clearInterval(timerUpdate);
+      el.innerHTML = finalMessage;
+    }
+
+  }, 1000)
+};
+
+countdown(('{{user.userprofile.time_sobres}}').slice(0,-5), 'clock', '¡Ya empezó!');
+
+		</script>
+</body>
+</html>

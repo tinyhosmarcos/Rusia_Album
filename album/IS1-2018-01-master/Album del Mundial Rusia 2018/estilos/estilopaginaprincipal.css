@@ -1,0 +1,42 @@
+html {
+    background-image: url("eee.jpg");
+}
+#regresar{
+	margin-top: 5%;
+	margin-left: 75%;
+}
+#albumdeuser{
+	margin-top: 15%;
+}
+#BotonDeAlbum{
+	margin-left: 35%;
+	margin-top: 5%;
+}
+#FigurasMedio{
+	margin-left: 25%;
+	margin-top: 15%;
+}
+#BotonDeCromos{
+	margin-left: 33%;
+	margin-top: 10%;
+}
+#Titulo{
+	text-align: center;
+	position: absolute;
+	margin-left: 32%;
+	color: white;
+}
+#PaquetesDeCromos{
+	margin-left: 22%;
+}
+#BotonesDeAbrir{
+	margin-left: 10%;
+}
+#ImgAreaInter{
+	margin-top: 10%;
+	margin-left: 17%;
+}
+#BotonDeArea{
+	margin-top: 4%;
+	margin-left: 23%;
+}

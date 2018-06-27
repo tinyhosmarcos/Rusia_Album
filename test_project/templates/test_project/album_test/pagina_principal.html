@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+    	<title>{% block title %}Pagina Principal{% endblock %}</title>
+
+    	{% block header %}
+    		<link rel="stylesheet" type="text/css" href="{% static 'test_project/css/materialize.min.css' %}" />
+			<style type="text/css">
+			div.col.s1{
+	        margin: 10px;
+	      }
+			</style>
+		{% endblock %}
+
+	</head>
+
+{%block footer%}
+	<body>
+
+{% if list_pagina %}
+    <div class="row paginas">
+    {% for pagina in list_pagina %}
+         <div class="col s1 deep-purple accent-3"><a href="{%url 'test_project:pagina' pagina.id%}">{{ pagina.nombre }} </a></div>
+    {% endfor %}
+    
+    </div>
+{% endif %}
+
+</body>
+{% endblock%}
+
+{% block java%}
+		<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="{% static 'test_project/js/materialize.min.js' %}"></script>
+	{% endblock %}
+</html>

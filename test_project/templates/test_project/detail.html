@@ -1,0 +1,9 @@
+<h1>{{ cromo.id }}</h1>
+<ul>
+	{% if cromo.tipo == cromo.JUGADOR%}
+    <li>{{ cromo.jugador.nombres }}</li>
+    
+    {% else %}
+    <li>{{cromo.estadio.nombre}}</li>
+    {%endif%}
+</ul>
