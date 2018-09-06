@@ -25,6 +25,11 @@ class UserProfile(models.Model):
 		time_sobres.time.second=num
 
 
+class Record(models.Model):
+	title = models.CharField(max_length=15)
+	text = models.CharField(max_length=)
+	date = models.DateField(default=timezone.now)
+	img_id = models.CharField(max_length=20)
 	
 
 class List_Cromo(models.Model):
